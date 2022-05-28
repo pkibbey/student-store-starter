@@ -65,7 +65,7 @@ export default function Sidebar({
   };
 
   const submitForm = async () => {
-    const result = await axios.post('http://localhost:3001/store', { userInfo, cart: shoppingCart });
+    const result = await axios.post(`${process.env.REACT_APP_REMOTE_HOST_URL}/store`, { userInfo, cart: shoppingCart });
     if (result.status) {
       console.log(result.data);
       setPaymentSuccess(true);
@@ -82,6 +82,7 @@ export default function Sidebar({
         flexDirection: 'column',
         gridTemplateRows: 'auto auto 1fr',
         display: isSidebarOpen ? 'block' : 'grid',
+        overflow: 'auto',
       }}
     >
       <ArrowIcon color="white" size={20} onClick={() => handleToggle()} />

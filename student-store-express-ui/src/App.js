@@ -41,7 +41,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await axios.get('http://localhost:3001/store');
+      const result = await axios.get(`${process.env.REACT_APP_REMOTE_HOST_URL}/store`);
       setProducts(result.data.products);
     }
     fetchData();
