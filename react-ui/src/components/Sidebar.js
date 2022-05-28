@@ -144,7 +144,7 @@ export default function Sidebar({
       )}
       {isSidebarOpen && hasItemsInCart && !paymentSuccess && (
         <Box sx={{ width: '100%' }}>
-          <Box as="h2" mb={3}>Payment Info</Box>
+          <Text as="h2" variant="link" mb={3}>Payment Info</Text>
           <Box mb={3}>
             <Label htmlFor="name" mb={2}>Name</Label>
             <Input

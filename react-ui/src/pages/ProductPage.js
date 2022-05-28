@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, Button, Grid } from 'theme-ui';
+import {
+  Box, Button, Grid, Text,
+} from 'theme-ui';
 import { useParams, Link } from 'react-router-dom';
 import ProductDetail from '../components/ProductDetail';
 import { findProductById } from '../utils';
@@ -19,11 +21,14 @@ export default function ProductPage({
 
   return (
     <>
-      <Grid sx={{ gridTemplateColumns: 'auto 1fr', mb: 3, gap: 2 }}>
+      <Grid sx={{ gridTemplateColumns: 'auto 1fr auto', mb: 4, gap: 2 }}>
         <Link to="/" style={{ color: 'royalblue' }}>
-          <Box as="h1" color="primary">Store</Box>
+          <Text as="h1" variant="link" color="primary">Store</Text>
         </Link>
-        <Box as="h1">{`/ ${product.name}`}</Box>
+        <Text as="h1" variant="link">{`/ ${product.name}`}</Text>
+        <Link to="/order-history" style={{ color: 'royalblue' }}>
+          <Text variant="link" color="primary">Order History</Text>
+        </Link>
       </Grid>
       <ProductDetail key={product?.id} product={product} />
       <Button onClick={addToCart} mr={3}>Add an item</Button>

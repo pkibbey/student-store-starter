@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Grid } from 'theme-ui';
+import { Link } from 'react-router-dom';
+import { Flex, Grid, Text } from 'theme-ui';
 import Product from '../components/Product';
 
 export default function HomePage({
@@ -11,7 +12,17 @@ export default function HomePage({
 }) {
   return (
     <>
-      <Box as="h1" mb={4}>Store</Box>
+      <Flex sx={{
+        mb: 4,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}
+      >
+        <Text as="h1" variant="link">Store</Text>
+        <Link to="/order-history" style={{ color: 'royalblue' }}>
+          <Text variant="link" color="primary">Order History</Text>
+        </Link>
+      </Flex>
       <Grid sx={{ gridTemplateColumns: isSidebarOpen ? ['1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr'] : ['1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr 1fr'] }}>
         {products.map((product) => (
           <Product

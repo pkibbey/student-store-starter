@@ -5,11 +5,13 @@ import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import ProductPage from './pages/ProductPage';
 import HomePage from './pages/HomePage';
+import OrderHistory from './pages/OrderHistory';
+import OrderDetail from './pages/OrderDetail';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [shoppingCart, setShoppingCart] = useState({});
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const addItemToCart = (itemId) => {
     setShoppingCart((cart) => {
@@ -76,6 +78,14 @@ function App() {
                 shoppingCart={shoppingCart}
               />
             )}
+          />
+          <Route
+            path="order-history"
+            element={(<OrderHistory />)}
+          />
+          <Route
+            path="order-history/:orderId"
+            element={(<OrderDetail />)}
           />
           <Route
             path="/"

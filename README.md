@@ -24,9 +24,9 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 - [x] Deploy your website with Heroku & Surge. 
 - [x] Create an endpoint that serves only a single product based on the product's id
-- [ ] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
-- [ ] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
-- [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
+- [x] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
+- [x] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
+- [x] Allow users to use an input to filter orders by the email of the person who placed the order.
 
 ### Walkthrough Video
 

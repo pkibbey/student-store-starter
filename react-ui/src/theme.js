@@ -11,8 +11,20 @@ const theme = {
   text: {
     price: {
       color: 'yellow',
-      fontSize: 0,
+      fontSize: 1,
       fontWeight: 'bold',
+    },
+    table: {
+      color: 'white',
+      fontSize: 1,
+    },
+    link: {
+      color: 'white',
+      fontSize: 3,
+      fontWeight: 'bold',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
     },
   },
   forms: {

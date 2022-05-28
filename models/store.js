@@ -1,4 +1,5 @@
 /* eslint-disable no-restricted-syntax */
+const { v4: uuidv4 } = require('uuid');
 const { BadRequestError, NotFoundError } = require('../utils/errors');
 const { storage } = require('../data/storage');
 
@@ -41,14 +42,18 @@ class Store {
       throw new BadRequestError('No user info found to checkout with.');
     }
     const products = storage.get('products').value();
+    console.log('products: ', products);
     const subtotal = Store.calculateSubtotal(cart, products);
+    console.log('subtotal: ', subtotal);
     const total = Store.totalWithTax(subtotal);
+    console.log('total: ', total);
 
     const receipt = Store.createReceipt({
       cart, subtotal, total, products, userInfo,
     });
 
     const purchase = {
+      id: uuidv4(),
       name: userInfo.name,
       email: userInfo.email,
       total,
@@ -66,10 +71,12 @@ class Store {
    * @returns number
    */
   static calculateSubtotal(cart, products) {
-    Object.entries(cart).reduce((prev, cartItem) => {
+    return Object.entries(cart).reduce((prev, cartItem) => {
       // Find the product
       const product = findProductById(products, cartItem[0]);
+      console.log('product: ', product);
       const quantity = cartItem[1];
+      console.log('quantity: ', quantity);
 
       // Check that the product exists
       if (!product) {
@@ -78,6 +85,8 @@ class Store {
 
       // Calculate product total
       const productTotal = quantity * product.price;
+      console.log('productTotal: ', typeof productTotal, productTotal);
+      console.log('prev: ', typeof prev, prev);
 
       // Return sum
       return prev + productTotal;
@@ -134,18 +143,16 @@ class Store {
    *
    */
   static async fetchOrders() {
-    return storage.get('products');
+    return storage.get('purchases');
   }
 
   /**
    * Method that fetches an order from the database based on an order id
    *
    */
-  static async fetchOrdersById(id) {
-    const orders = storage.get('products');
-    // eslint-disable-next-line no-console
-    console.log('orders: ', orders, id);
-    return false;
+  static async fetchOrderById(id) {
+    const order = storage.get('purchases').find((o) => o.id === id);
+    return order;
   }
 }
 
