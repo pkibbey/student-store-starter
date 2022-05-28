@@ -67,7 +67,6 @@ export default function Sidebar({
   const submitForm = async () => {
     const result = await axios.post(`${process.env.REACT_APP_REMOTE_HOST_URL}/store`, { userInfo, cart: shoppingCart });
     if (result.status) {
-      console.log(result.data);
       setPaymentSuccess(true);
     }
   };
@@ -173,13 +172,16 @@ export default function Sidebar({
         </Box>
       )}
       {paymentSuccess && (
-        <Grid sx={{
-          gridTemplateColumns: '1fr auto', gap: 2, alignItems: 'center', mb: 3,
-        }}
-        >
-          <MdCheck color="green" size={24} />
-          <Text sx={{ color: 'green' }}>Payment was successful</Text>
-        </Grid>
+        <>
+          <Grid sx={{
+            gridTemplateColumns: '1fr auto', gap: 2, alignItems: 'center', mb: 3,
+          }}
+          >
+            <MdCheck color="green" size={24} />
+            <Text sx={{ color: 'green' }}>Payment was successful</Text>
+          </Grid>
+          <Button onClick={handleReset} variant="secondary">Clear</Button>
+        </>
       )}
     </Grid>
   );

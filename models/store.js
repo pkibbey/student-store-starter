@@ -102,9 +102,7 @@ class Store {
   }) {
     const productRows = Object.entries(cart).map((cartItem) => {
       const quantity = cartItem[1];
-      console.log('quantity: ', quantity);
       const product = findProductById(products, cartItem[0]);
-      console.log('product: ', product.price, formatPrice(product.price), quantity * product.price);
 
       return {
         ...product,
@@ -140,20 +138,13 @@ class Store {
   }
 
   /**
-   * Method that fetches all the orders in the database
-   *
-   */
-  static async fetchOrders() {
-    return storage.get('products');
-  }
-
-  /**
    * Method that fetches an order from the database based on an order id
    *
    */
   static async fetchOrdersById(id) {
     const orders = storage.get('products');
-    console.log('orders: ', orders);
+    // eslint-disable-next-line no-console
+    console.log('orders: ', orders, id);
     return false;
   }
 }
