@@ -42,11 +42,8 @@ class Store {
       throw new BadRequestError('No user info found to checkout with.');
     }
     const products = storage.get('products').value();
-    console.log('products: ', products);
     const subtotal = Store.calculateSubtotal(cart, products);
-    console.log('subtotal: ', subtotal);
     const total = Store.totalWithTax(subtotal);
-    console.log('total: ', total);
 
     const receipt = Store.createReceipt({
       cart, subtotal, total, products, userInfo,
@@ -74,9 +71,7 @@ class Store {
     return Object.entries(cart).reduce((prev, cartItem) => {
       // Find the product
       const product = findProductById(products, cartItem[0]);
-      console.log('product: ', product);
       const quantity = cartItem[1];
-      console.log('quantity: ', quantity);
 
       // Check that the product exists
       if (!product) {
@@ -85,8 +80,6 @@ class Store {
 
       // Calculate product total
       const productTotal = quantity * product.price;
-      console.log('productTotal: ', typeof productTotal, productTotal);
-      console.log('prev: ', typeof prev, prev);
 
       // Return sum
       return prev + productTotal;
