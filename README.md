@@ -48,7 +48,14 @@ Add your response here
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- [uuid](https://www.npmjs.com/package/uuid)
+- [eslint](https://www.npmjs.com/package/eslint)
+- [theme-ui](https://www.npmjs.com/package/theme-ui)
+- [axios](https://www.npmjs.com/package/axios)
+- [react](https://www.npmjs.com/package/react)
+- [react-dom](https://www.npmjs.com/package/react-dom)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [react-icons](https://www.npmjs.com/package/react-icons)
 
 ### Shout out
 
