@@ -3,7 +3,7 @@ import {
   Box, Button, Flex, Grid, Input, Label, Text,
 } from 'theme-ui';
 import {
-  MdArrowBack, MdArrowForward, MdShoppingCart, MdCheck,
+  MdArrowBack, MdArrowForward, MdShoppingCart, MdCheck, MdCancel,
 } from 'react-icons/md';
 import axios from 'axios';
 import { findProductById } from '../utils';
@@ -73,18 +73,19 @@ export default function Sidebar({
   };
 
   return (
-    <Flex
+    <Grid
       sx={{
         p: 3,
         transition: 'width 0.3s ease',
         borderRight: '1px solid rgba(255,255,255,0.1)',
         width: isSidebarOpen ? 360 : 52,
         flexDirection: 'column',
-        alignItems: 'flex-start',
+        gridTemplateRows: 'auto auto 1fr',
+        display: isSidebarOpen ? 'block' : 'grid',
       }}
     >
       <ArrowIcon color="white" size={20} onClick={() => handleToggle()} />
-      <Box sx={{ position: 'relative', mt: 3 }}>
+      <Box sx={{ position: 'relative', mt: 3, width: 16 }}>
         <MdShoppingCart />
         {hasItemsInCart && (
           <Grid sx={{
@@ -136,6 +137,11 @@ export default function Sidebar({
           </Flex>
         </>
       )}
+      {!isSidebarOpen && (
+      <Flex sx={{ alignItems: 'flex-end', justifyContent: 'center' }} onClick={handleReset} title="Reset shopping cart">
+        <MdCancel />
+      </Flex>
+      )}
       {isSidebarOpen && hasItemsInCart && !paymentSuccess && (
         <Box sx={{ width: '100%' }}>
           <Box as="h2" mb={3}>Payment Info</Box>
@@ -161,21 +167,19 @@ export default function Sidebar({
               }))}
             />
           </Box>
-          <Button onClick={submitForm}>Submit</Button>
+          <Button onClick={submitForm} mr={3}>Submit</Button>
+          <Button onClick={handleReset} variant="secondary">Clear</Button>
         </Box>
       )}
       {paymentSuccess && (
-        <>
-          <Grid sx={{
-            gridTemplateColumns: '1fr auto', gap: 2, alignItems: 'center', mb: 3,
-          }}
-          >
-            <MdCheck color="green" size={24} />
-            <Text sx={{ color: 'green' }}>Payment was successful</Text>
-          </Grid>
-          <Button onClick={handleReset} variant="secondary">Reset</Button>
-        </>
+        <Grid sx={{
+          gridTemplateColumns: '1fr auto', gap: 2, alignItems: 'center', mb: 3,
+        }}
+        >
+          <MdCheck color="green" size={24} />
+          <Text sx={{ color: 'green' }}>Payment was successful</Text>
+        </Grid>
       )}
-    </Flex>
+    </Grid>
   );
 }

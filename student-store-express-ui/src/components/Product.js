@@ -4,7 +4,9 @@ import {
 } from 'theme-ui';
 import { Link } from 'react-router-dom';
 
-export default function Product({ product, addItemToCart, removeItemFromCart }) {
+export default function Product({
+  product, itemCount, addItemToCart, removeItemFromCart,
+}) {
   const addToCart = () => addItemToCart(product.id);
   const removeFromCart = () => removeItemFromCart(product.id);
 
@@ -30,7 +32,8 @@ export default function Product({ product, addItemToCart, removeItemFromCart }) 
         </Box>
       </Link>
       <Grid sx={{
-        gridTemplateColumns: '1fr auto',
+        gap: 1,
+        gridTemplateColumns: itemCount ? '1fr auto auto' : '1fr auto',
       }}
       >
         <Box
@@ -44,10 +47,22 @@ export default function Product({ product, addItemToCart, removeItemFromCart }) 
           {product.name}
         </Box>
         <Text variant="price">{`$${product.price.toFixed(2)}`}</Text>
+        {!!itemCount && (
+          <Box
+            sx={{
+              whiteSpace: 'nowrap',
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
+              fontSize: 0,
+            }}
+          >
+            {`x ${itemCount}`}
+          </Box>
+        )}
       </Grid>
-      <Grid sx={{ gridTemplateColumns: '1fr auto' }}>
+      <Grid sx={{ gridTemplateColumns: '1fr 1fr' }}>
         <Button variant="small" onClick={addToCart}>Add</Button>
-        <Button variant="smallSecondary" onClick={removeFromCart}>Remove</Button>
+        {!!itemCount && <Button variant="smallSecondary" onClick={removeFromCart}>Remove</Button>}
       </Grid>
     </Grid>
   );

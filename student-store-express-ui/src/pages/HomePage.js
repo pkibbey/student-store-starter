@@ -7,6 +7,7 @@ export default function HomePage({
   addItemToCart,
   removeItemFromCart,
   isSidebarOpen,
+  shoppingCart,
 }) {
   return (
     <>
@@ -16,6 +17,7 @@ export default function HomePage({
           <Product
             key={product.id}
             product={product}
+            itemCount={shoppingCart[product.id] || 0}
             addItemToCart={addItemToCart}
             removeItemFromCart={removeItemFromCart}
           />
