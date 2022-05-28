@@ -130,6 +130,32 @@ class Store {
       productRows,
     };
   }
+
+  /**
+   * Method that fetches all the orders in the database
+   *
+   */
+  static async fetchOrders() {
+    return storage.get('products');
+  }
+
+  /**
+   * Method that fetches all the orders in the database
+   *
+   */
+  static async fetchOrders() {
+    return storage.get('products');
+  }
+
+  /**
+   * Method that fetches an order from the database based on an order id
+   *
+   */
+  static async fetchOrdersById(id) {
+    const orders = storage.get('products');
+    console.log('orders: ', orders);
+    return false;
+  }
 }
 
 Store.tax = 0.0875;

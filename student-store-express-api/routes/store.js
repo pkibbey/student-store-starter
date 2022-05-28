@@ -12,6 +12,25 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/orders', async (req, res, next) => {
+  try {
+    const orders = await Store.fetchOrders();
+    res.status(200).json({ orders });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/orders/:orderId', async (req, res, next) => {
+  const { orderId } = req.params;
+  try {
+    const order = await Store.fetchOrdersById(orderId);
+    res.status(200).json({ order });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/:productId', async (req, res, next) => {
   try {
     const { productId } = req.params;
