@@ -12,13 +12,13 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 #### REQUIRED FEATURES
 
-- [ ] The API should contain an endpoint that serves an array of all products in the store
-- [ ] An endpoint should exist for creating orders and saving them to a JSON file. Each order should contain the email of the person placing the order, the items associated with the order, and the quantity of each item purchased.
-- [ ] A Store model should handle all data management logic for the API and be the interface for read/write operations to the JSON file.
-- [ ] The frontend should include a landing page that displays the products available for purchase.
-- [ ] There should be a `Sidebar` component that appears on every page and has two states - `open` and `closed`. When the sidebar is opened, it should display a shopping cart of all the products the user currently has in their cart. It should also calculate and display the total amount in dollars for the checked-out items. When it's closed, the sidebar should be much thinner and not display its internal content.
-- [ ] Each product should have an individual page that shows the details of the product and allows the user to add that product to their shopping cart.
-- [ ] A checkout form should be available that allows the user to enter their email and send their order to the API.
+- [x] The API should contain an endpoint that serves an array of all products in the store
+- [x] An endpoint should exist for creating orders and saving them to a JSON file. Each order should contain the email of the person placing the order, the items associated with the order, and the quantity of each item purchased.
+- [x] A Store model should handle all data management logic for the API and be the interface for read/write operations to the JSON file.
+- [x] The frontend should include a landing page that displays the products available for purchase.
+- [x] There should be a `Sidebar` component that appears on every page and has two states - `open` and `closed`. When the sidebar is opened, it should display a shopping cart of all the products the user currently has in their cart. It should also calculate and display the total amount in dollars for the checked-out items. When it's closed, the sidebar should be much thinner and not display its internal content.
+- [x] Each product should have an individual page that shows the details of the product and allows the user to add that product to their shopping cart.
+- [x] A checkout form should be available that allows the user to enter their email and send their order to the API.
 
 #### STRETCH FEATURES
 

@@ -8,6 +8,13 @@ const formatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2,
 });
 
+function findProductById(products, id) {
+  if (typeof id === 'string') {
+    return products.find((p) => p.id === parseInt(id, 10));
+  }
+  return products.find((p) => p.id === id);
+}
+
 const formatPrice = (amount) => `$${formatter.format(amount)}`;
 
 class Store {
@@ -59,25 +66,22 @@ class Store {
    * @returns number
    */
   static calculateSubtotal(cart, products) {
-    const productsMapping = products.reduce((acc, product) => {
-      acc[product.name] = product;
-      return acc;
-    }, {});
+    Object.entries(cart).reduce((prev, cartItem) => {
+      // Find the product
+      const product = findProductById(products, cartItem[0]);
+      const quantity = cartItem[1];
 
-    let subtotal = 0;
-    // eslint-disable-next-line no-restricted-syntax
-    // eslint-disable-next-line guard-for-in
-    for (const productName in cart) {
-      if (!productsMapping[productName]) {
-        throw new BadRequestError(`Item: ${productName} is not in the Student Store inventory.`);
+      // Check that the product exists
+      if (!product) {
+        throw new BadRequestError(`Item ID: ${cartItem[0]} is not in the Student Store inventory.`);
       }
-      const product = productsMapping[productName];
-      const quantity = cart[productName];
-      const productSubtotal = quantity * product.price;
-      subtotal += productSubtotal;
-    }
 
-    return subtotal;
+      // Calculate product total
+      const productTotal = quantity * product.price;
+
+      // Return sum
+      return prev + productTotal;
+    }, 0);
   }
 
   /**
@@ -96,18 +100,16 @@ class Store {
   static createReceipt({
     cart, subtotal, total, products, userInfo,
   }) {
-    const productMapping = products.reduce((acc, item) => {
-      acc[item.name] = item;
-      return acc;
-    }, {});
-
-    const productRows = Object.keys(cart).map((productName) => {
-      const product = productMapping[productName];
+    const productRows = Object.entries(cart).map((cartItem) => {
+      const quantity = cartItem[1];
+      console.log('quantity: ', quantity);
+      const product = findProductById(products, cartItem[0]);
+      console.log('product: ', product.price, formatPrice(product.price), quantity * product.price);
 
       return {
         ...product,
-        quantity: cart[productName],
-        totalPrice: cart[productName] * product.price,
+        quantity,
+        totalPrice: quantity * product.price,
       };
     });
 

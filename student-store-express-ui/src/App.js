@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 function App() {
   const [products, setProducts] = useState([]);
   const [shoppingCart, setShoppingCart] = useState({});
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const addItemToCart = (itemId) => {
     setShoppingCart((cart) => {
@@ -34,6 +35,10 @@ function App() {
     });
   };
 
+  const resetShoppingCart = () => {
+    setShoppingCart({});
+  };
+
   useEffect(() => {
     async function fetchData() {
       const result = await axios.get('http://localhost:3001/store');
@@ -55,6 +60,9 @@ function App() {
         shoppingCart={shoppingCart}
         addItemToCart={addItemToCart}
         removeItemFromCart={removeItemFromCart}
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+        resetShoppingCart={resetShoppingCart}
       />
       <Box p={3} sx={{ overflow: 'auto' }}>
         <Routes>
@@ -77,6 +85,7 @@ function App() {
                 addItemToCart={addItemToCart}
                 removeItemFromCart={removeItemFromCart}
                 shoppingCart={shoppingCart}
+                isSidebarOpen={isSidebarOpen}
               />
             )}
           />

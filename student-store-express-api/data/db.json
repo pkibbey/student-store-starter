@@ -145,5 +145,336 @@
       "price": 999.99
     }
   ],
-  "purchases": []
+  "purchases": [
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "3 total Rice Krispies purchased at a cost of $0.99 for a total cost of $2.97.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 3,
+            "totalPrice": 2.9699999999999998
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "3 total Rice Krispies purchased at a cost of $0.99 for a total cost of $2.97.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 3,
+            "totalPrice": 2.9699999999999998
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "3 total Rice Krispies purchased at a cost of $0.99 for a total cost of $2.97.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 3,
+            "totalPrice": 2.9699999999999998
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "12 total Rice Krispies purchased at a cost of $0.99 for a total cost of $11.88.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 12,
+            "totalPrice": 11.879999999999999
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "13 total Cinnamon Rolls purchased at a cost of $2.99 for a total cost of $38.87.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 3,
+            "name": "Cinnamon Rolls",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Johns_Inc_Cinnamon_Rolls.jpg",
+            "source": "https://en.wikipedia.org/wiki/File:Johns_Inc_Cinnamon_Rolls.jpg",
+            "description": "Basically just cake for breakfast, but who's complaining?",
+            "price": 2.99,
+            "quantity": 13,
+            "totalPrice": 38.870000000000005
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "1 total Rice Krispies purchased at a cost of $0.99 for a total cost of $0.99.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 1,
+            "totalPrice": 0.99
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "1 total Rice Krispies purchased at a cost of $0.99 for a total cost of $0.99.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 1,
+            "totalPrice": 0.99
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "3 total Rice Krispies purchased at a cost of $0.99 for a total cost of $2.97.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 3,
+            "totalPrice": 2.9699999999999998
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "2 total Fruit Medley purchased at a cost of $7.50 for a total cost of $15.00.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 5,
+            "name": "Fruit Medley",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Fruits.png",
+            "source": "https://commons.wikimedia.org/wiki/File:Fruits.png",
+            "description": "More fruit than you know what to do with!",
+            "price": 7.5,
+            "quantity": 2,
+            "totalPrice": 15
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "1 total Rice Krispies purchased at a cost of $0.99 for a total cost of $0.99.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 1,
+            "totalPrice": 0.99
+          }
+        ]
+      }
+    },
+    {
+      "name": "A. Customer",
+      "email": "customer-email@gmail.com",
+      "total": null,
+      "receipt": {
+        "userInfo": {
+          "name": "A. Customer",
+          "email": "customer-email@gmail.com"
+        },
+        "lines": [
+          "Showing receipt for A. Customer available at customer-email@gmail.com:",
+          "4 total Rice Krispies purchased at a cost of $0.99 for a total cost of $3.96.",
+          "Before taxes, the subtotal was $NaN",
+          "After taxes and fees were applied, the total comes out to $NaN"
+        ],
+        "productRows": [
+          {
+            "id": 1,
+            "name": "Rice Krispies",
+            "category": "food",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+            "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+            "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+            "price": 0.99,
+            "quantity": 4,
+            "totalPrice": 3.96
+          }
+        ]
+      }
+    }
+  ]
 }

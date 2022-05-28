@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import {
-  Box, Button, Flex, Grid, Text,
+  Box, Button, Flex, Grid, Input, Label, Text,
 } from 'theme-ui';
-import { MdArrowBack, MdArrowForward, MdShoppingCart } from 'react-icons/md';
+import {
+  MdArrowBack, MdArrowForward, MdShoppingCart, MdCheck,
+} from 'react-icons/md';
+import axios from 'axios';
 import { findProductById } from '../utils';
 
 function CartItem({
@@ -37,10 +40,12 @@ function CartItem({
 
 export default function Sidebar({
   products, shoppingCart, addItemToCart, removeItemFromCart,
+  isSidebarOpen, setIsSidebarOpen, resetShoppingCart,
 }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
+  const [userInfo, setUserInfo] = useState({ name: 'A. Customer', email: 'customer-email@gmail.com' });
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
   const totalItemsInCart = Object.values(shoppingCart).reduce((prev, item) => prev + item, 0);
+  const hasItemsInCart = !!totalItemsInCart;
 
   const totalCost = Object.entries(shoppingCart).reduce((prev, item) => {
     const foundProduct = findProductById(products, item[0]);
@@ -53,6 +58,19 @@ export default function Sidebar({
   function handleToggle() {
     setIsSidebarOpen((currentState) => !currentState);
   }
+
+  const handleReset = () => {
+    resetShoppingCart();
+    setPaymentSuccess(false);
+  };
+
+  const submitForm = async () => {
+    const result = await axios.post('http://localhost:3001/store', { userInfo, cart: shoppingCart });
+    if (result.status) {
+      console.log(result.data);
+      setPaymentSuccess(true);
+    }
+  };
 
   return (
     <Flex
@@ -68,7 +86,7 @@ export default function Sidebar({
       <ArrowIcon color="white" size={20} onClick={() => handleToggle()} />
       <Box sx={{ position: 'relative', mt: 3 }}>
         <MdShoppingCart />
-        {!!totalItemsInCart && (
+        {hasItemsInCart && (
           <Grid sx={{
             position: 'absolute',
             bottom: -2,
@@ -110,11 +128,52 @@ export default function Sidebar({
             width: '100%',
             alignItems: 'center',
             justifyContent: 'space-between',
+            mb: 4,
           }}
           >
             <Text sx={{ fontSize: 2 }}>Total</Text>
             <Text variant="price" sx={{ fontSize: 2 }}>{`$${totalCost.toFixed(2)}`}</Text>
           </Flex>
+        </>
+      )}
+      {isSidebarOpen && hasItemsInCart && !paymentSuccess && (
+        <Box sx={{ width: '100%' }}>
+          <Box as="h2" mb={3}>Payment Info</Box>
+          <Box mb={3}>
+            <Label htmlFor="name" mb={2}>Name</Label>
+            <Input
+              id="name"
+              value={userInfo.name}
+              onChange={(event) => setUserInfo((info) => ({
+                ...info,
+                name: event.target.value,
+              }))}
+            />
+          </Box>
+          <Box mb={3}>
+            <Label htmlFor="email" mb={2}>Email</Label>
+            <Input
+              id="email"
+              value={userInfo.email}
+              onChange={(event) => setUserInfo((info) => ({
+                ...info,
+                email: event.target.value,
+              }))}
+            />
+          </Box>
+          <Button onClick={submitForm}>Submit</Button>
+        </Box>
+      )}
+      {paymentSuccess && (
+        <>
+          <Grid sx={{
+            gridTemplateColumns: '1fr auto', gap: 2, alignItems: 'center', mb: 3,
+          }}
+          >
+            <MdCheck color="green" size={24} />
+            <Text sx={{ color: 'green' }}>Payment was successful</Text>
+          </Grid>
+          <Button onClick={handleReset} variant="secondary">Reset</Button>
         </>
       )}
     </Flex>

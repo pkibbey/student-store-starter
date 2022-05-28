@@ -6,11 +6,12 @@ export default function HomePage({
   products,
   addItemToCart,
   removeItemFromCart,
+  isSidebarOpen,
 }) {
   return (
     <>
       <Box as="h1" mb={4}>Store</Box>
-      <Grid sx={{ gridTemplateColumns: ['1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr 1fr'] }}>
+      <Grid sx={{ gridTemplateColumns: isSidebarOpen ? ['1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr'] : ['1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr 1fr'] }}>
         {products.map((product) => (
           <Product
             key={product.id}

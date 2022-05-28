@@ -3,7 +3,6 @@ import {
   Box, Button, Grid, Image, Text,
 } from 'theme-ui';
 import { Link } from 'react-router-dom';
-import { MdAdd, MdRemove } from 'react-icons/md';
 
 export default function Product({ product, addItemToCart, removeItemFromCart }) {
   const addToCart = () => addItemToCart(product.id);
@@ -12,7 +11,6 @@ export default function Product({ product, addItemToCart, removeItemFromCart }) 
   return (
     <Grid
       sx={{
-        borderRadius: 3,
         gridTemplateRows: '1fr auto',
         gap: 2,
       }}
@@ -20,6 +18,7 @@ export default function Product({ product, addItemToCart, removeItemFromCart }) 
       <Link to={`/product/${product.id}`} style={{ display: 'grid' }}>
         <Box sx={{
           backgroundColor: '#333',
+          borderRadius: 3,
           display: 'block',
           padding: '10px',
           '&:hover': {
@@ -46,9 +45,9 @@ export default function Product({ product, addItemToCart, removeItemFromCart }) 
         </Box>
         <Text variant="price">{`$${product.price.toFixed(2)}`}</Text>
       </Grid>
-      <Grid sx={{ gridTemplateColumns: '1fr 1fr' }}>
-        <Button variant="small" onClick={addToCart}><MdAdd size={12} /></Button>
-        <Button variant="smallSecondary" onClick={removeFromCart}><MdRemove size={12} /></Button>
+      <Grid sx={{ gridTemplateColumns: '1fr auto' }}>
+        <Button variant="small" onClick={addToCart}>Add</Button>
+        <Button variant="smallSecondary" onClick={removeFromCart}>Remove</Button>
       </Grid>
     </Grid>
   );
