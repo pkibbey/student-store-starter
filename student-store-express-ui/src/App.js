@@ -1,43 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Box, Grid,
-} from 'theme-ui';
+import { Box, Grid } from 'theme-ui';
 import axios from 'axios';
-import {
-  Routes, Route, useParams, Link,
-} from 'react-router-dom';
-import Product from './components/Product';
+import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import ProductDetail from './components/ProductDetail';
-
-function ProductPage({ products }) {
-  const params = useParams();
-  const productIdAsInt = parseInt(params.productId, 10);
-  const product = products.find((p) => p.id === productIdAsInt);
-
-  if (!products.length) { return null; }
-
-  return (
-    <>
-      <Link to="/" style={{ color: 'royalblue' }}><Box as="h1" mb={3} color="royalblue">Back</Box></Link>
-      <ProductDetail key={product?.id} product={product} />
-    </>
-  );
-}
-
-function Content({ products }) {
-  return (
-    <>
-      <Box as="h1" mb={4}>Store</Box>
-      <Grid sx={{ gridTemplateColumns: ['1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr 1fr'] }}>
-        {products.map((product) => <Product key={product.id} product={product} />)}
-      </Grid>
-    </>
-  );
-}
+import ProductPage from './pages/ProductPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState({});
+
+  const addItemToCart = (itemId) => {
+    setShoppingCart((cart) => {
+      const newCart = { ...cart };
+      if (newCart[itemId]) {
+        newCart[itemId] += 1;
+      } else {
+        newCart[itemId] = 1;
+      }
+      return newCart;
+    });
+  };
+
+  const removeItemFromCart = (itemId) => {
+    setShoppingCart((cart) => {
+      const newCart = { ...cart };
+      if (newCart[itemId] > 1) {
+        newCart[itemId] -= 1;
+      } else {
+        delete newCart[itemId];
+      }
+      return newCart;
+    });
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -55,16 +50,35 @@ function App() {
       overflow: 'hidden',
     }}
     >
-      <Sidebar />
+      <Sidebar
+        products={products}
+        shoppingCart={shoppingCart}
+        addItemToCart={addItemToCart}
+        removeItemFromCart={removeItemFromCart}
+      />
       <Box p={3} sx={{ overflow: 'auto' }}>
         <Routes>
           <Route
             path="product/:productId"
-            element={<ProductPage products={products} />}
+            element={(
+              <ProductPage
+                products={products}
+                addItemToCart={addItemToCart}
+                removeItemFromCart={removeItemFromCart}
+                shoppingCart={shoppingCart}
+              />
+            )}
           />
           <Route
             path="/"
-            element={<Content products={products} />}
+            element={(
+              <HomePage
+                products={products}
+                addItemToCart={addItemToCart}
+                removeItemFromCart={removeItemFromCart}
+                shoppingCart={shoppingCart}
+              />
+            )}
           />
         </Routes>
       </Box>

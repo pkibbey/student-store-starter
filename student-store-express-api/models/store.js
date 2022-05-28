@@ -35,8 +35,7 @@ class Store {
     }
     const products = storage.get('products').value();
     const subtotal = Store.calculateSubtotal(cart, products);
-    // eslint-disable-next-line no-underscore-dangle
-    const total = Store._totalWithTax(subtotal);
+    const total = Store.totalWithTax(subtotal);
 
     const receipt = Store.createReceipt({
       cart, subtotal, total, products, userInfo,
@@ -82,12 +81,11 @@ class Store {
   }
 
   /**
-   * Private method used to return the total with 8.875% sales tax added on.
+   * Method used to return the total with 8.875% sales tax added on.
    *
    * @returns the cost with tax included
    */
-  // eslint-disable-next-line no-underscore-dangle
-  static _totalWithTax(cost) {
+  static totalWithTax(cost) {
     return cost + cost * Store.tax;
   }
 

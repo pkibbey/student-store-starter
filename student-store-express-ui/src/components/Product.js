@@ -1,8 +1,14 @@
 import React from 'react';
-import { Box, Grid, Image } from 'theme-ui';
+import {
+  Box, Button, Grid, Image, Text,
+} from 'theme-ui';
 import { Link } from 'react-router-dom';
+import { MdAdd, MdRemove } from 'react-icons/md';
 
-export default function Product({ product }) {
+export default function Product({ product, addItemToCart, removeItemFromCart }) {
+  const addToCart = () => addItemToCart(product.id);
+  const removeFromCart = () => removeItemFromCart(product.id);
+
   return (
     <Grid
       sx={{
@@ -38,7 +44,11 @@ export default function Product({ product }) {
         >
           {product.name}
         </Box>
-        <Box sx={{ fontSize: 0, color: 'yellow', fontWeight: 'bold' }}>{`$${product.price.toFixed(2)}`}</Box>
+        <Text variant="price">{`$${product.price.toFixed(2)}`}</Text>
+      </Grid>
+      <Grid sx={{ gridTemplateColumns: '1fr 1fr' }}>
+        <Button variant="small" onClick={addToCart}><MdAdd size={12} /></Button>
+        <Button variant="smallSecondary" onClick={removeFromCart}><MdRemove size={12} /></Button>
       </Grid>
     </Grid>
   );
