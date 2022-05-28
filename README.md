@@ -2,11 +2,11 @@
 
 ## Week 2 Assignment: Student Store
 
-Submitted by: **NAME**
+Submitted by: **Phineas Kibbey**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **8** hours spent in total
 
-Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Student Store Deployed Site](https://store-pkibbey.surge.sh/)
 
 ### Application Features
 
