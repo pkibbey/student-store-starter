@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.js'",
-    "deploy:ui": "npm run build && surge --domain store-pkibbey.surge.sh build"
+    "deploy:ui": "npm run build && cp build/index.html build/200.html && surge --domain store-pkibbey.surge.sh build"
   },
   "eslintConfig": {
     "extends": [

@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "start:ui": "cd react-ui && npm run start:dev",
     "start:dev": "npm run start & npm run start:ui",
+    "start:ui": "cd react-ui && npm run start:dev",
+    "deploy:ui": "cd react-ui && npm run deploy:ui",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint './**/*.js'"
   },
